@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">WereableTest</string>
+    <string name="app_name">Wallet</string>
     <string name="hello_world">Hello world!</string>
+    <string name="que_vols_fer">Què vols fer?</string>
+    <string name="title_activity_list">Contactos</string>
+    <string name="title_activity_select_money">SelectMoneyActivity</string>
+    <string name="title_activity_confirm_send_money">ConfirmSendMoneyActivity</string>
+    <string name="title_activity_notification">NotificationActivity</string>
+    <string name="title_activity_qr_bar">QrBarActivity</string>
 
 </resources>
