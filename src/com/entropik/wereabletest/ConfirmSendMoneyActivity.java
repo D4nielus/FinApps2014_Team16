@@ -250,7 +250,22 @@ boolean check_is_pin_correct()
 	if(myPassword.getText().length()<4)
 		return false;
 	else
+	{
+		settings_m = new Wallets(ConfirmSendMoneyActivity.this.getApplicationContext());
+        Wallet my_Wallet = settings_m.lst_wallets.get(Integer.parseInt(settings_m.ultimo_tipo));
+        
+        int tipo = Integer.parseInt(settings_m.ultimo_tipo);
+        
+        my_Wallet.to = settings_m.lst_wallets.get(tipo-1).to;
+        my_Wallet.from = settings_m.lst_wallets.get(tipo-1).from;
+        my_Wallet.total_mount = settings_m.lst_wallets.get(tipo-1).total_mount;
+        my_Wallet.the_id = settings_m.lst_wallets.get(tipo-1).the_id;
+        my_Wallet.total_mount = settings_m.lst_wallets.get(tipo-1).total_mount;
+        my_Wallet.result = "ok";
+        
+        settings_m.set_wallet(tipo,my_Wallet);
 		return true;
+	}
 }
 
 public void ejecutar() {

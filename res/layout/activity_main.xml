@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/markets"
+    android:background="@drawable/fondo"
     android:gravity="top"
     tools:context="${relativePackage}.${activityClass}" >
 
@@ -18,20 +18,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:text="@string/que_vols_fer" />
+            android:text="@string/que_vols_fer"
+            android:textColor="@color/textbody"
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/button_click_enviar_money"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Enviar diners" />
 
         <Button
             android:id="@+id/button_click_email"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Rebre diners" />
 
     </LinearLayout>
-
+    
 </RelativeLayout>

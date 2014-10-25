@@ -15,22 +15,14 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
-import android.support.v4.app.NotificationCompat.WearableExtender;
-import android.text.InputFilter;
-import android.text.InputType;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -67,8 +59,28 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				abrir_qr();
+				
+				preparar_layout("1");
+				
+				if(settings_m!=null)
+				{
+					Wallet my_wallet = new Wallet();
+			        int tipo = Integer.parseInt(settings_m.ultimo_tipo);
+
+
+			        my_wallet.to = settings_m.lst_wallets.get(tipo-1).to;
+			        my_wallet.from = settings_m.lst_wallets.get(tipo-1).from;
+			        my_wallet.total_mount = settings_m.lst_wallets.get(tipo-1).total_mount;
+			        my_wallet.the_id = settings_m.lst_wallets.get(tipo-1).the_id;
+			        my_wallet.result = settings_m.lst_wallets.get(tipo-1).result;
+			        
+			        if(my_wallet.result=="ok")
+			        	abrir_qr();
+			        else
+			        	Toast.makeText(MainActivity.this, "Actualment no hi ha cap servei Wallet disponible.", Toast.LENGTH_SHORT).show();
+				}
+				else
+					Toast.makeText(MainActivity.this, "Actualment no hi ha cap servei Wallet disponible.", Toast.LENGTH_SHORT).show();
 				//notification_email();
 			}
 		}); 

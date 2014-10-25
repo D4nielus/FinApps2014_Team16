@@ -2,6 +2,7 @@ package com.entropik.wereabletest;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -47,6 +48,10 @@ public class Wallets {
 
     private Context context;
 
+    public Wallets() {
+    	
+    }
+    
     public Wallets(Context _c) {
 
         this.context = _c;
@@ -58,6 +63,18 @@ public class Wallets {
 
     }
 
+    public List<Wallet> getWallets() {
+
+        this.ultimo_tipo = get_tipo();
+        for(int i=1;i<4;i++)
+        {
+        	lst_wallets.add(get_wallet(i));
+        }
+        
+        return lst_wallets;
+
+    }
+    
     public void set_tipo(String _tipo)
     {
         SharedPreferences.Editor editor = this.getSettings().edit();
